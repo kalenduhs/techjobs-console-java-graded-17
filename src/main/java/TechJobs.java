@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -59,7 +60,7 @@ public class TechJobs {
 
                 // What is their search term?
                 System.out.println("\nSearch term:");
-                String searchTerm = in.nextLine();
+                String searchTerm = in.nextLine().toLowerCase();
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
@@ -119,7 +120,39 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-
-        System.out.println("printJobs is not implemented yet");
+        /*if (someJobs.isEmpty()) { //If statement to check if someJobs is empty. If true print no results
+            System.out.print("No Results");
+        } else {
+            for (HashMap<String, String> jobs : someJobs) { //Loop over the ArrayList
+                String position = jobs.get("position type");
+                String name = jobs.get("name");
+                String employer = jobs.get("employer");
+                String location = jobs.get("location");
+                String coreCompetency = jobs.get("core competency");
+                System.out.println('\n' + "*****" + '\n' +
+                        "position type: " + position + '\n' +
+                        "name: " + name + '\n' +
+                        "employer: " + employer + '\n' +
+                        "location: " + location + '\n' +
+                        "core competency: " + coreCompetency + '\n' +
+                        "*****"
+                );
+            }
+        }*/
+        if (someJobs.isEmpty()) { //If statement to check if someJobs is empty. If true print no results
+            System.out.print("No Results");
+        } else {
+            for (HashMap<String, String> jobs : someJobs) { //Loop over the ArrayList
+                System.out.println('\n' + "*****");
+                for (Map.Entry<String, String> entry : jobs.entrySet()) { //Loop over the HashMap
+                    String key = entry.getKey();
+                    String value = entry.getValue();
+                    System.out.println(key + ": " + value);
+                }
+                System.out.println("*****");
+            }
+        }
     }
+
+
 }
