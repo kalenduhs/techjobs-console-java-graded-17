@@ -145,9 +145,7 @@ public class TechJobs {
             for (HashMap<String, String> jobs : someJobs) { //Loop over the ArrayList
                 System.out.println('\n' + "*****");
                 for (Map.Entry<String, String> entry : jobs.entrySet()) { //Loop over the HashMap
-                    String key = entry.getKey();
-                    String value = entry.getValue();
-                    System.out.println(key + ": " + value);
+                    System.out.println(entry.getKey() + ": " + entry.getValue());
                 }
                 System.out.println("*****");
             }
